@@ -29,8 +29,6 @@ public class sum extends HttpServlet {
 
         java.util.Map<String, String[]> parMap = request.getParameterMap();
 
-
-
         java.util.Collection<String[]> parVal = parMap.values();
 
         //int numberofPar=parVal.size();
