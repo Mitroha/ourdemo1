@@ -27,8 +27,22 @@ public class sum extends HttpServlet {
         //String paramName = "one";
         //String paramValue = request.getParameter(paramName);
 
-        java.util.Map<String, String[]> parMap = request.getParameterMap();
+        Map<String, String[]> parMap = request.getParameterMap();
 
+        int sumPar = 0;
+
+        for (String key: parMap.keySet()){
+
+            String[] value=parMap.get(key);
+            for (String curVal: value){
+
+                sumPar=sumPar+Integer.parseInt(curVal);
+
+            }
+        }
+
+
+        /**
         java.util.Collection<String[]> parVal = parMap.values();
 
         //int numberofPar=parVal.size();
@@ -49,8 +63,10 @@ public class sum extends HttpServlet {
                 sumPar = sumPar + nextPar;
             }
         }
+         */
 
         out.println(sumPar);
+
 
 
         //out.println(paramValue);
