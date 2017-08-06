@@ -29,9 +29,6 @@ public class HelloServlet extends HttpServlet {
         out.println(date.toGMTString());
 
 
-        //TimeZone london = TimeZone.getTimeZone("Europe/London");
-
-
         out.close();
     }
 }
