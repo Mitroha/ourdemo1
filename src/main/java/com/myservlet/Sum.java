@@ -16,31 +16,19 @@ import java.util.Map;
 @WebServlet(name = "sumServlet", urlPatterns = {"/"})
 public class Sum extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String urlString = new String(request.getRequestURL().toString());
-
-
         response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
-
 
         Map<String, String[]> parMap = request.getParameterMap();
-
         int sumPar = 0;
-
         for (String key : parMap.keySet()) {
-
             String[] value = parMap.get(key);
             for (String curVal : value) {
-
-                sumPar = sumPar + Integer.parseInt(curVal);
-
+                sumPar += Integer.parseInt(curVal);
             }
         }
 
-
+        PrintWriter out = response.getWriter();
         out.println(sumPar);
-
-
-        out.flush();
+        out.close();
     }
 }
