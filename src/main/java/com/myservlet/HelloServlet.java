@@ -14,28 +14,25 @@ import java.util.Date;
  */
 
 
-
-@WebServlet(name = "HelloServlet", urlPatterns={"/time"})
+@WebServlet(name = "HelloServlet", urlPatterns = {"/time"})
 public class HelloServlet extends HttpServlet {
 
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Date date = new Date();
-        Date dateLondon=new Date();
+        Date dateLondon = new Date();
         response.setContentType("text/html");
-        PrintWriter out=response.getWriter();
+        PrintWriter out = response.getWriter();
 
         out.println(date.toString());
 
         out.println(date.toGMTString());
 
 
-
         //TimeZone london = TimeZone.getTimeZone("Europe/London");
 
 
-
-        out.flush();
+        out.close();
     }
 }
 
